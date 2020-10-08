@@ -5,6 +5,7 @@ import sklearn.preprocessing as pp
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
 import time
 
 
@@ -38,9 +39,15 @@ X_test_std = sc.transform(X_test)
 knn_n = [5, 10, 15, 20, 25, 30, 35]
 for i in knn_n:
     t_b = time.perf_counter()
-    knn = KNeighborsClassifier(n_neighbors=i, metric='manhattan')
+    knn = KNeighborsClassifier(n_neighbors=i, metric='manhattan', weights='distance')
     knn.fit(X_train_std, y_train)
     y_pred = knn.predict(X_test_std)
     t_e = time.perf_counter()
     print("KNN Accuracy: {} when n = {}".format(accuracy_score(y_test, y_pred), i))
     print((t_e - t_b)*1000)
+
+knn_optimal = KNeighborsClassifier(n_neighbors=30, metric='manhattan', weights='distance')
+knn_optimal.fit(X_train_std, y_train)
+y_optimal_pred = knn_optimal.predict(X_test_std)
+print("KNN Accuracy: {}".format(accuracy_score(y_test, y_optimal_pred)))
+print("Other Metrics: {}".format(classification_report(y_test, y_optimal_pred)))
