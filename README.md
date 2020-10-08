@@ -2,9 +2,9 @@
 ### Tina Jin and Virginia Weston
 
 ### Exploratory Data Analysis 
-For our Exploratory Data Analysis, we initially ran a scatter plot matrix to explore relationships by setting the outcome (whether a person has diabetes or not) to the y variable and setting the rest to x. All of the x variables were quantitative, making it easier to decipher relationships between them.
+For our EDA, we identified the features of our model which were radius, texture, perimeter, area, smoothness, compactness, symmetry, and fractal dimension. Using these features and setting them to x, we were able to further explore relationships between the x variables and the outcome. Because the outcome (or the diagnosis result) in the dataset is a categorical variable M (malignant) or B (benign), we knew we would need to convert that to a numeral value. It was also evident that we would need to scale the data prior to running a KNN because of the differences in measurements between each feature. Furthermore, we ran a scatter plot matrix and heat map to visualize the given dataset. 
 ![](/images/Figure_2.png)
-Moreover, by using a heatmap, we were able to conceptualize any linear relationships between the data. The strongest linear relationship among the data was between age and pregnancy, with a correlation coefficient of 0.54. Although not considered a strong linear relationship, the two variables can be considered correlated to one another. 
+From using the heatmap we were able to conceptualize any linear relationships between the data. There were fairly decent positive linear relationships between several variables in the data. Although it may be obvious that the two features would be correlated, the strongest linear relationship in the data was between the area and the perimeter of a tumor with a correlation coefficient of 0.98. Another positive linear relationship with a correlation coefficient 0.68 is between a tumor’s symmetry and compactness. 
 ![](/images/Figure_1.png)
 
 ### Initial Manipulation/Feature Scaling
