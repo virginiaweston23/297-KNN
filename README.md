@@ -16,6 +16,7 @@ We looked over all hyperparameters in the scikitlearn KNeighborsClassifier API (
 ![](/images/knn_k.png)
 
 As a result of these tests of hyperparameters, we concluded that using 15 neighbors, a weight metric of distance (bias towards the nearest neighbors) and a distance metric of manhattan distance results in the best accuracy for the KNN model. We also calculated the precision of our KNN model by calling the sklearn.metrics.classification_report API. Below are the results that the model prints. The accuracy is 94%, and the precision is 93%.
+
 ![](/images/knn_metrics.png)
 
 
